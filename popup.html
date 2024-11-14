@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Time Guardian</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+      :root {
+        --primary-color: #1da1f2;
+        --primary-dark: #1a91da;
+        --background-color: #f0f2f5;
+        --card-background: #ffffff;
+        --text-color: #333333;
+        --text-secondary: #666666;
+        --border-color: #e1e4e8;
+      }
+
+      body {
+        width: 320px;
+        margin: 0;
+        padding: 20px;
+        font-family: "Inter", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .header {
+        text-align: center;
+      }
+
+      .header h2 {
+        color: var(--primary-color);
+        margin: 0;
+        font-size: 24px;
+      }
+
+      .header p {
+        color: var(--text-secondary);
+        margin: 5px 0 0;
+        font-size: 14px;
+      }
+
+      .card {
+        background-color: var(--card-background);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: var(--text-color);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(29, 161, 242, 0.2);
+      }
+
+      .time-display {
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .time-display p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--text-secondary);
+      }
+
+      .time-remaining {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin: 5px 0;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background-color 0.3s ease,
+          transform 0.1s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .primary-button {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .primary-button:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .secondary-button {
+        background-color: var(--border-color);
+        color: var(--text-color);
+      }
+
+      .secondary-button:hover {
+        background-color: #d1d5da;
+      }
+
+      .stats {
+        font-size: 12px;
+        color: var(--text-secondary);
+        text-align: center;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Twitter Time Guardian</h2>
+        <p>Manage your Twitter time wisely</p>
+      </div>
+
+      <div class="card">
+        <div class="input-group">
+          <label for="timeLimit">Daily Time Limit (minutes):</label>
+          <input
+            type="number"
+            id="timeLimit"
+            min="1"
+            max="1440"
+            placeholder="Enter minutes..."
+          />
+        </div>
+
+        <div class="time-display">
+          <p>Time Remaining</p>
+          <div id="timeRemaining" class="time-remaining animate-pulse">
+            --:--
+          </div>
+        </div>
+      </div>
+
+      <button id="saveLimit" class="primary-button">Save Limit</button>
+      <button id="resetTime" class="secondary-button">Reset Timer</button>
+
+      <div id="dailyStats" class="stats"></div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
