@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveLimitButton = document.getElementById("saveLimit");
   const resetTimeButton = document.getElementById("resetTime");
   const dailyStats = document.getElementById("dailyStats");
-  const progressBar = document.querySelector(".progress-fill");
 
   function updateDisplay() {
     chrome.storage.local.get(["timeLimit", "timeSpent"], function (data) {
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         timeLimitInput.value = data.timeLimit;
       }
       updateTimeDisplay(data.timeLimit, data.timeSpent || 0);
-      updateStats(data.timeSpent || 0, data.timeLimit || 0);
+      updateStats(data.timeSpent || 0);
     });
   }
 
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateDisplay();
       });
     } else {
-      alert("Please enter a valid time limit between 1 and 1440 minutes.");
+      alert("Please enter a valid time limit.");
     }
   });
 
@@ -42,23 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateTimeDisplay(limit, spent) {
     if (!limit) {
       timeRemainingSpan.textContent = "--:--";
-      progressBar.style.width = "0%";
       return;
     }
-
     const remaining = Math.max(0, limit * 60 - spent);
     const minutes = Math.floor(remaining / 60);
     const seconds = remaining % 60;
-
-    timeRemainingSpan.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-    const progress = ((limit * 60 - remaining) / (limit * 60)) * 100;
-    progressBar.style.width = `${progress}%`;
+    timeRemainingSpan.textContent = `${minutes}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
   }
 
-  function updateStats(timeSpent, timeLimit) {
+  function updateStats(timeSpent) {
     const minutes = Math.floor(timeSpent / 60);
     const seconds = timeSpent % 60;
-    const usagePercentage = (timeSpent / (timeLimit * 60)) * 100;
-    dailyStats.textContent = `Today's Usage: ${minutes}m ${seconds}s (${usagePercentage.toFixed(1)}%)`;
+    dailyStats.textContent = `Time spent today: ${minutes}m ${seconds}s`;
   }
 });

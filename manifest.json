@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Twitter Time Guardian",
+  "name": "timeX",
   "version": "1.0",
   "description": "Manage your Twitter addiction by setting daily time limits",
   "permissions": ["activeTab", "storage", "alarms", "tabs"],
