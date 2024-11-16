@@ -1,16 +1,16 @@
 # Timex - Chrome Extension
 
-Timex is a simple and effective Chrome extension that helps users limit the time they spend on Twitter.
+Timex is a simple and effective Chrome extension that helps users limit the time they spend on Twitter. With Timex, you can set a time duration for using Twitter (e.g., 5 minutes), after which the extension will block access to the site.
 
 ---
 
 ## 🚀 Features
 
-- ⏱️ **Customizable Time Limit**: Set the maximum daily duration you can spend on Twitter.
-- ⏰ **Usage Tracker**: See how much time you've used and how much remains for the day.
-- 🔔 **Time-Up Alerts**: Get notified when you’ve reached your daily limit.
-- 🔒 **Auto-Lock**: Automatically blocks Twitter after your daily limit is reached.
-- 📅 **Reset Daily**: Resets the timer every 24 hours.
+- ⏱️ **Customizable Usage Duration**: Set how long you can use Twitter before it gets blocked.
+- 🔔 **Time-Up Alerts**: Get notified when your set duration is over.
+- 🔒 **Auto-Lock**: Automatically blocks Twitter after the time duration is reached.  
+  **[TODO]** Add support for a daily total limit instead of single-use duration.
+- 📅 **Reset Mechanism**: Allows you to unblock Twitter by manually resetting the timer (if you dare!).
 
 ---
 
@@ -27,9 +27,9 @@ Timex is a simple and effective Chrome extension that helps users limit the time
 ## 🖥️ How to Use
 
 1. Open the Timex extension by clicking its icon in the Chrome toolbar.
-2. Set your desired daily time limit for Twitter usage.
-3. The extension will track your time and notify you when you’ve hit your limit.
-4. Once your time is up, Twitter will be automatically blocked until the next day.
+2. Set the desired time duration for Twitter usage (e.g., 5 minutes).
+3. The extension will track your time and notify you when the duration is up.
+4. Once your time is up, Twitter will be automatically blocked until you reset the timer.
 
 ---
 
