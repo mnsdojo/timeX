@@ -30,7 +30,3 @@ Timex is a simple and effective Chrome extension that helps users limit the time
 2. Set the desired time duration for Twitter usage (e.g., 5 minutes).
 3. The extension will track your time and notify you when the duration is up.
 4. Once your time is up, Twitter will be automatically blocked until you reset the timer.
-
----
-
-## 📂 Project Structure
